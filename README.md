@@ -9,7 +9,7 @@
 | 날짜 | 주제 | 링크 |
 |------|------|------|
 | Day 1 | Titanic EDA 기본 | [day1_summary.md](./day1/day1_summary.md) |
-| Day 2 | TBD | [day2_summary.md](./day2/day2_summary.md) |
+| Day 2 | 전처리 실습 | [day2_summary.md](./day2/day2_summary.md) |
 | ...  | ...  | ... |
 
 ## 📁 파일 구조
