@@ -11,6 +11,7 @@
 | Day 1 | Titanic EDA 기본 | [day1_summary.md](./day1/day1_summary.md) |
 | Day 2 | 전처리 실습 | [day2_summary.md](./day2/day2_summary.md) |
 | Day 3  | 피벗, 병합, 전처리 실습 요약 | [day3_summary.md](./day3/day3_summary.md) |
+| Day 4  | 타이타닉 생존 예측 모델링 | [day4_summary.md](./day4/day4_summary.md) |
 
 ## 📁 파일 구조
 - `/dayX/` : 날짜별 실습 코드 & 정리
