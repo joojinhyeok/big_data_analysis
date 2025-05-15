@@ -7,6 +7,11 @@ df = pd.DataFrame({
 })
 
 # pivot_table: 수치형 데이터 평균/합계 등 집계
+# ** 사용 이유 **
+# 1. 데이터 요약 : 긴 테이블을 집계된 표로 줄여서 보여줌
+# 2. 행 -> 열 전환 : 어떤 값이 행으로 되어 있으면, 열로 바꿔서 가독성 높임
+# 3. 다차원 분석 : 그룹별 평균, 최대값, 합계 등 다양한 통계 요약 가능
+# 4. 빠른 시각화 준비 : 피봇 테이블은 그래프나 차트를 그릴 때 유용
 pivot = pd.pivot_table(df, values='점수', index='성별', columns='학년', aggfunc='mean')
 print("** pivot **\n", pivot)
 """
@@ -21,6 +26,7 @@ print("** pivot **\n", pivot)
 
 
 # crosstab(범주형 변수 교차표): 빈도표, 범주형 변수에 유용
+# --> 범주형 데이터의 빈도표(교차표)를 만듦. 두 개 이상의 범주형 변수 간의 빈도 관계를 보여줌
 ct = pd.crosstab(df['성별'], df['학년'])
 print("** crosstab **\n", ct)
 

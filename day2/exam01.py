@@ -7,7 +7,7 @@ import pandas as pd
 - 결측치는 데이터 누락으로, 분석 정확도에 영향을 줌
 """
 
-# 데이터 불러오기
+# 데이터 불러오기 -> 그냥 테이블이라고 생각
 df = pd.read_csv('C:/csv/test.csv')
 
 # 1. Age 컬럼의 결측치를 평균값으로 대체
@@ -16,7 +16,7 @@ print("Age", df['Age'])
 # 평균값(30.27...)으로 결측치가 채워짐
 
 # 2. Fare 컬럼의 결측치를 중앙값으로 대체
-df['Fare'] = df['Fare'].fillna(df['Fare'].median())
+df['Fare'] = df['Fare'].fillna(df['Fare'].median()) # .fillna() 결측치 채우는 함수
 print("Fare", df['Fare'])
 # 결측치 1개가 중앙값으로 대체되어 NaN 없음
 
@@ -39,12 +39,12 @@ print("Cabin", df['Cabin'])
 # 1. IQR(Interquartile Range, 사분위 범위) 계산
 Q1 = df['Fare'].quantile(0.25)  # 1사분위수
 Q3 = df['Fare'].quantile(0.75)  # 3사분위수
-IQR = Q3 - Q1                   # IQR = Q3 - Q1
+IQR = Q3 - Q1                   # IQR = Q3 - Q1(= 중앙 50% 데이터가 퍼져 있는 범위)
 print("**IQR** = ", IQR)
 
 # 2. 이상치 기준 설정
-lower = Q1 - 1.5 * IQR
-upper = Q3 + 1.5 * IQR
+lower = Q1 - 1.5 * IQR  # 하한선(이 값보다 작으면 이상치)
+upper = Q3 + 1.5 * IQR  # 상한선(이 값보다 크면 이상치)
 
 # 3. 이상치만 추출하여 개수 확인
 outliers = df[(df['Fare'] < lower) | (df['Fare'] > upper)]
@@ -68,6 +68,7 @@ df = df[(df['Fare'] >= lower) & (df['Fare'] <= upper)]
 """
 
 # One-Hot Encoding (drop_first=True: 기준값 제거로 다중공선성 방지)
+# get_dumies()는 "범주형(카테고리형) 데이터를 숫자로 변환"해주는 함수
 df = pd.get_dummies(df, columns=['Sex', 'Embarked'], drop_first=True)
 
 print("3단계 인코딩", df.head())
