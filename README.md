@@ -15,6 +15,7 @@
 | Day 4 | 타이타닉 생존 예측 모델링             | [day4_summary.md](./day4/day4_summary.md) |
 | Day 5 | 로지스틱 회귀를 활용한 분류 문제 해결 | [day5_summary.md](./day5/day5_summary.md) |
 | Day 6 | 모델 성능 개선 및 앙상블 기법 | [day6_summary.md](./day6/day6_summary.md) |
+| Day 7 | 실전 모의고사 실습 및 전체 흐름 정리 | [day7_summary.md](./day7/day7_summary.md) |
 
 ## 📁 파일 구조
 
