@@ -44,6 +44,7 @@ print("Accuracy:", accuracy_score(y_val, y_pred))  # 정확도 계산 및 출력
 joblib.dump(model, 'best_model.pkl')  # 모델 저장
 joblib.dump(X.columns.tolist(), 'model_columns.pkl')  # 학습에 사용한 피처 순서도 함께 저장
 joblib.dump((X_train, X_val, y_train, y_val), 'split_data.pkl')
+joblib.dump(model, 'model.pkl') 
 print("모델과 피처 정보 저장 완료!")
 
 # (선택) 현재 작업 디렉토리 및 파일 목록 출력 – 경로 오류 점검용
