@@ -19,6 +19,7 @@
 | Day 8 | 모델 예측 및 제출파일 생성 실습       | [day8_summary.md](./day8/day8_summary.md) |
 | Day 9 | 교차검증 & 하이퍼파라미터 튜닝       | [day9_summary.md](./day9/day9_summary.md) |
 | Day 10 | Titanic ML Pipeline       | [day10_summary.md](./day10/day10_summary.md) |
+| Day 11 | 앙상블 기법 실습 정리 (Voting / Bagging / Stacking)       | [day11_summary.md](./day11/day11_summary.md) |
 
 ## 📁 파일 구조
 
