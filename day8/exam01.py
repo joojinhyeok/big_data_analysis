@@ -12,12 +12,13 @@ test = pd.read_csv('C:/csv/test.csv')
 features = ['Pclass', 'Sex', 'Age', 'Fare', 'Embarked']
 
 # 결측치가 있는 행 제거 (예측 불가능한 행 제외)
+# features 리스트에 있는 컬럼들 중 하나라도 NaN(결측치)이 있으면, 해당 행(row)을 제거
 test = test.dropna(subset=features)
 
 # PassengerId는 나중에 제출 파일에서 식별자 역할 → 따로 저장
 test_passenger_id = test['PassengerId']
 
-# 범주형 변수들(Sex, Embarked)을 숫자로 변환 (원-핫 인코딩)
+# test[features]에 범주형 변수들(Sex, Embarked)을 숫자로 변환 (원-핫 인코딩)
 # drop_first=True는 첫 번째 범주는 제거 → 다중공선성 방지
 X_test = pd.get_dummies(test[features], drop_first=True)
 
@@ -37,6 +38,7 @@ expected_columns = joblib.load('model_columns.pkl')
 
 # X_test의 컬럼을 expected_columns 순서에 맞추고,
 # 없는 컬럼은 자동으로 0으로 채움 (fill_value=0)
+# X_test의 컬럼 -> expected_columns순서에 맞춤
 X_test = X_test.reindex(columns=expected_columns, fill_value=0)
 
 # -------------------------------------
