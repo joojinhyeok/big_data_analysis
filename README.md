@@ -21,6 +21,7 @@
 | Day 10 | Titanic ML Pipeline       | [day10_summary.md](./day1~10/day10/day10_summary.md) |
 | Day 11 | 앙상블 기법 실습 정리 (Voting / Bagging / Stacking)       | [day11_summary.md](./day11/day11_summary.md) |
 | Day 12 | Stacking & 하이퍼파라미터 튜닝 실습 (시험 대비)       | [day12_summary.md](./day12/day12_summary.md) |
+| Day 12 | 실전 시험 대비 - 스태킹 앙상블 + 성능 향상       | [day13_summary.md](./day13/day13_summary.md) |
 
 ## 📁 파일 구조
 
