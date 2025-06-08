@@ -23,6 +23,7 @@
 | Day 12 | Stacking & 하이퍼파라미터 튜닝 실습 (시험 대비)       | [day12_summary.md](./day12/day12_summary.md) |
 | Day 13 | 실전 시험 대비 - 스태킹 앙상블 + 성능 향상       | [day13_summary.md](./day13/day13_summary.md) |
 | Day 14 | 실전 시험 대비 - 1유형 문제풀이       | [day14_summary.md](./day14/day14_summary.md) |
+| Day 15 | 실전 시험 대비 - 2유형 문제풀이       | [day15_summary.md](./day15/day15_summary.md) |
 
 
 ## 📁 파일 구조
