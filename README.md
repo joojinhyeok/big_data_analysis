@@ -24,6 +24,7 @@
 | Day 13 | 실전 시험 대비 - 스태킹 앙상블 + 성능 향상       | [day13_summary.md](./day13/day13_summary.md) |
 | Day 14 | 실전 시험 대비 - 1유형 문제풀이       | [day14_summary.md](./day14/day14_summary.md) |
 | Day 15 | 실전 시험 대비 - 2유형 문제풀이       | [day15_summary.md](./day15/day15_summary.md) |
+| Day 16 | 실전 시험 대비 - 1유형 문제풀이       | [day16_summary.md](./day15/day16_summary.md) |
 
 
 ## 📁 파일 구조
