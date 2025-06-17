@@ -26,6 +26,7 @@
 | Day 15 | 실전 시험 대비 - 2유형 문제풀이       | [day15_summary.md](./day15/day15_summary.md) |
 | Day 16 | 실전 시험 대비 - 1유형 문제풀이       | [day16_summary.md](./day16/day16_summary.md) |
 | Day 17 | 실전 시험 대비 - 1유형 문제풀이       | [day17_summary.md](./day17/day17_summary.md) |
+| Day 18 | 실전 시험 대비 - 2유형 실기체험환경       | [day18_summary.md](./day18/day18_summary.md) |
 
 
 ## 📁 파일 구조
