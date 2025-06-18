@@ -45,17 +45,22 @@ train = pd.read_csv('C:/csv/train.csv')
 test = pd.read_csv('C:/csv/test.csv')
 
 # 데이터 확인
-# print(train.info()) -> 수치형: Age컬럼 결측치o, 범주형: Cabin, Embarked 결측치o, Name/Sex도/Ticket 범주형
-# print(test.info()) -> 수치형: Age, Fare컬럼 결측치o, 범주형: Cabin 결측치o, Name/Sex/Ticket/Embarked 범주형
+# print(train.info()) -> 수치형: Age컬럼 결측치o, 범주형: Embarked 결측치o, Name/Sex도/Ticket 범주형
+# print(test.info()) -> 수치형: Age, Fare컬럼 결측치o, 범주형:  Name/Sex/Ticket/Embarked 범주형
 
 # 데이터 전처리
 
-# 결측치 처리
-train['Age'] = train['Age'].fillna(train['Age'].mode()[0])  # 최빈값으로 Age 결측치 채우기   
-test['Age'] = test['Age'].fillna(test['Age'].mode()[0])  # 최빈값으로 Age 결측치 채우기   
+# 예측에 필요없는 데이터 제거
+train = train.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
+test = test.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
 
-train['Cabin'] = train['Cabin'].fillna(train['Cabin'].mode()[0])
-test['Cabin'] = test['Cabin'].fillna(test['Cabin'].mode()[0])
+# 결측치 처리
+train['Age'] = train['Age'].fillna(train['Age'].mean())  # 평균값으로 Age 결측치 채우기   
+test['Age'] = test['Age'].fillna(test['Age'].mean())  # 평균값으로 Age 결측치 채우기   
+
+train['Embarked'] = train['Embarked'].fillna(train['Embarked'].mode()[0])
+test['Embarked'] = test['Embarked'].fillna(test['Embarked'].mode()[0])
+test['Fare'] = test['Fare'].fillna(test['Fare'].mean())
 
 # 인코딩
 from sklearn.preprocessing import LabelEncoder
@@ -63,3 +68,40 @@ from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
 
+train['Sex'] = le.fit_transform(train['Sex'])
+test['Sex'] = le.transform(test['Sex'])
+
+train['Embarked'] = le.fit_transform(train['Embarked'])
+test['Embarked'] = le.transform(test['Embarked'])
+
+# 데이터 분할
+X = train.drop(columns='Survived')
+y = train['Survived']
+
+# 학습용 평가용으로 분할(test_size=0.3, random_state=42)
+from sklearn.model_selection import train_test_split
+
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# 모델링 및 학습
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100, max_depth=6, random_state=42)
+model.fit(X_train, y_train)
+pred1 = model.predict(X_val)
+# print(pred1)
+
+# 성능평가
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(y_val, pred1)    # (실제값, 예측값)
+# print(acc)
+
+# 테스트 데이터 예측 및 저장
+test_X = test
+pred2 = model.predict(test_X)
+# print(pred2)
+
+# 제출
+pd.DataFrame({'pred':pred2}).to_csv('result.csv', index=False)
+
+print(pd.read_csv('result.csv'))
