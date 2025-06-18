@@ -21,8 +21,9 @@ test = pd.read_csv("data/customer_test.csv")
 # print(train.info()) -> 수치형: 환불금액(결측치 존재), 범주형: 주구매상품, 주구매지점	
 # print(test.info())	-> 수치형: 환불금액(결측치 존재), 범주형: 주구매상품, 주구매지점	
 
-# 2. 데이터 전처리 -> 결측치를 '최빈값'이나 '평균값', '중앙값'을 넣어보면서 모델 평가 해보기
-# 결측치 처리
+# 2. 데이터 전처리 
+
+# 결측치 처리 -> 결측치를 '최빈값'이나 '평균값', '중앙값'을 넣어보면서 모델 평가 해보기
 train['환불금액'] = train['환불금액'].fillna(train['환불금액'].median())	# 평균값으로 결측치 처리
 test['환불금액'] = test['환불금액'].fillna(test['환불금액'].median())
 
@@ -42,9 +43,10 @@ for col in cols:
 
 # 3. 데이터 분할
 from sklearn.model_selection import train_test_split
-# 독립변수 X, 종속변수 y
+
+# 독립변수 X, 종속변수 y 
+# 총구매액은 종속변수에만 필요/회원ID는 고유의 값 이므로 삭제 
 X = train.drop(columns=['회원ID', '총구매액'])	
-# -> 총구매액은 종속변수에만 필요/회원ID는 고유의 값 이므로 삭제 
 y = train['총구매액']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
