@@ -28,6 +28,7 @@
 | Day 17 | 실전 시험 대비 - 1유형 문제풀이       | [day17_summary.md](./day17/day17_summary.md) |
 | Day 18 | 실전 시험 대비 - 2유형 실기체험환경       | [day18_summary.md](./day18/day18_summary.md) |
 | Day 19 | 실전 시험 대비 - 2유형 Titanic 생존 예측       | [day19_summary.md](./day19/day19_summary.md) |
+| Day 20 | 실전 시험 대비 - 3유형 문제풀이       | [day20_summary.md](./day20/day20_summary.md) |
 
 
 ## 📁 파일 구조
