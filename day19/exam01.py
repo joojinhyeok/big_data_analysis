@@ -60,6 +60,7 @@ test['Age'] = test['Age'].fillna(test['Age'].mean())  # 평균값으로 Age 결�
 
 train['Embarked'] = train['Embarked'].fillna(train['Embarked'].mode()[0])
 test['Embarked'] = test['Embarked'].fillna(test['Embarked'].mode()[0])
+
 test['Fare'] = test['Fare'].fillna(test['Fare'].mean())
 
 # 인코딩
