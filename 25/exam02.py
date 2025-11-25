@@ -51,4 +51,4 @@ s0 = train[train['Survived'] == 0]['Fare']
 # 무조건 equal_var=False 
 Ans3 = ttest_ind(s1, s0, equal_var=False)
 
-print(Ans3) # 답: 
+print(Ans3) # 답: 6.84
