@@ -7,6 +7,16 @@ train = pd.read_csv('csv/train.csv')
 # 해당 항구에서 탑승한 승객들의 Fare(요금) 평균을 구하시오. 
 # (단, 결측치는 제거하고, 정답은 소수점 셋째 자리에서 반올림하여 둘째 자리까지 출력)
 
+train = train.dropna(subset=['Embarked'])
+
+# print(train.isna().sum())
+
+c = train['Embarked'].value_counts()
+
+Ans1 = train[train['Embarked'] == 'S']['Fare'].mean()
+
+# print(round(Ans1, 2)) # 답: 64.67
+
 # ========================================================================================================================================
 
 # Q2. 순위 기반 추출 (2등 찾기)
@@ -14,9 +24,29 @@ train = pd.read_csv('csv/train.csv')
 # (예: 0명이 제일 많고, 1명이 두 번째라면 답은 1) 그 그룹에 속한 승객들의 Age 평균을 구하시오. 
 # (단, Age 결측치는 제거하고, 정답은 소수점 셋째 자리에서 반올림하여 둘째 자리까지 출력)
 
+train = train.dropna(subset=['Age'])
+
+Si = train['SibSp'].value_counts().index[1]
+
+# print(Si) # -> 1명이 두 번째로 많음
+
+Ans2 = train[train['SibSp'] == 1]['Age'].mean()
+
+# print(round(Ans2, 2)) # 답: 35.4 -> 35.40이라고 제출해야하는지?
+
 # ========================================================================================================================================
 
 # Q3. 파생변수 & 빈도 분석
 # Age 컬럼을 활용하여 Age_band (나이대) 컬럼을 생성하시오. 
 # (예: 20대=20, 30대=30 ... (Age // 10) * 10) 가장 많은 승객이 속한 나이대의 **생존율(Survived 평균)**을 구하시오. 
 # (단, 결측치는 제거하고, 정답은 소수점 셋째 자리에서 반올림하여 둘째 자리까지 출력)
+
+train['Age_band'] = (train['Age'] // 10) * 10
+
+ab = train['Age_band'].value_counts().index[0]
+
+# print(ab) -> 30대
+
+Ans3 = train[train['Age_band'] == 30.0]['Survived'].mean()
+
+# print(round(Ans3, 2)) # 답: 0.76
